@@ -1,8 +1,10 @@
 const jwt = require('jsonwebtoken');
 const { StatusCodes } = require('http-status-codes');
 const { ApiError } = require('../../utils/errors');
-const { verifyToken } = require('../../modules/users/userServices');
+const { userServices } = require('../../modules/users');
+// const { verifyToken } = require('../../modules/users/userServices'); this works but i want to use the benefits of index.js
 
+console.log(userServices); // undefined
 module.exports = (req, res, next) => {
   try {
     const authHeader = req.get('Authorization');
